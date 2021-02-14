@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="BtnRemoveFavorite">Удалить</string>
+    <string name="BtnAddFavorite">Добавить</string>
+    <string name="BtnDetail">Подробнее</string>
+    <string name="BtnInvite">Пригласить друга</string>
+    <string name="action_favorite">Избранное</string>
+    <string name="favorite_save">Готово</string>
+    <string name="favorite_cancel">Отмена</string>
+    <string name="ExitAlertTitle">Подтверждение</string>
+    <string name="ExitAlertMsg">Вы уверены что хотите выйти из программы?</string>
+    <string name="ExitAlertYes">Уверен</string>
+    <string name="ExitAlertNo">Остаюсь</string>
+</resources>

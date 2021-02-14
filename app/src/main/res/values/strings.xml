@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name" translatable="false">hw2</string>
+    <string name="BtnRemoveFavorite">Remove</string>
+    <string name="BtnAddFavorite">Add</string>
+    <string name="BtnDetail">Details</string>
+    <string name="BtnInvite">Invite</string>
+    <string name="action_favorite">My Favorites</string>
+    <string name="favorite_save">Ready!</string>
+    <string name="favorite_cancel">Cancel</string>
+    <string name="ExitAlertTitle">Confirmation</string>
+    <string name="ExitAlertMsg">Are you sure that you want to exit?</string>
+    <string name="ExitAlertYes">Yes, I sure</string>
+    <string name="ExitAlertNo">No, I stay</string>
+</resources>
