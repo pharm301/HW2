@@ -15,10 +15,10 @@ class FavoriteActivity : AppCompatActivity() {
         const val prefID = "prefID_"
         const val pref_FILMNAME = "prefFN_"
         const val pref_FILMPOSTER = "prefFP_"
+        var items = mutableListOf(
+                FavoriteItem(0, "", "")
+        )
     }
-    var items = mutableListOf(
-        FavoriteItem(0, "Звездные войны", "film1", this)
-    )
     private val recyclerView by lazy { findViewById<RecyclerView>(R.id.recyclerview) }
     private val toolbar by lazy { findViewById<Toolbar>(R.id.toolbar) }
 
@@ -44,7 +44,7 @@ class FavoriteActivity : AppCompatActivity() {
             favFN = intent.getStringExtra(pref_FILMNAME + i.toString()).toString()
             favFP = intent.getStringExtra(pref_FILMPOSTER + i.toString()).toString()
 
-            items.add(FavoriteItem(favID, favFN, favFP, this))
+            items.add(FavoriteItem(favID, favFN, favFP))
             i ++
         }
         setContentView(R.layout.activity_favorite)

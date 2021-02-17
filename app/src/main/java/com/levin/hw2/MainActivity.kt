@@ -24,19 +24,21 @@ class MainActivity : AppCompatActivity() {
         const val prefID = "prefID_"
         const val pref_FILMNAME = "prefFN_"
         const val pref_FILMPOSTER = "prefFP_"
+
+        var items = mutableListOf(
+                FilmItem (0, "Звездные войны","Давным давно, в очень далекой галактике...","film4", false),
+                FilmItem (0,"Мандалорец","После победы Республики, в очень далекой галактике...","film1", false ),
+                FilmItem (0,"Терминатор 2","Скайнет посылает нового Терминатора Т1000","film3", false ),
+                FilmItem (0,"Игра престолов","Захватывающее противостояние от известного ватаката в жанре фентези","film2", false),
+                FilmItem (0,"Чужие","История про ужасных инопланетных чудовищ продолжается. Рипли опять в деле","film5", false),
+                FilmItem (0,"Робокоп","Бандиты недалекого будущего станут столь суровы, что для борьбы с ними создадут Киборга","film6", false),
+                FilmItem (0,"Выход Дракона","Брюс Ли всех подбъет, пусть даже врагов будет целый остров","film7", false),
+                FilmItem (0,"Хороший, плохой, злой","Выдающийся спагетти-вестерн. Все звезды жанра - Трус, Бывалый и Балбес на мексиканский лад","film8", false),
+                FilmItem (0,"Проект А","Почти Операция Ы, но в главной роли Джеки Чан и его друзья","film9", false),
+                FilmItem (0,"Гладиатор","Рассел Кроу в роли Настоящего Мужика времен Римской Империи","film10", false),
+        )
+
     }
-    var items = mutableListOf(
-        FilmItem (0, "Звездные войны","Давным давно, в очень далекой галактике...","film4", false, this),
-        FilmItem (0,"Мандалорец","После победы Республики, в очень далекой галактике...","film1", false,this ),
-        FilmItem (0,"Терминатор 2","Скайнет посылает нового Терминатора Т1000","film3", false, this ),
-        FilmItem (0,"Игра престолов","Захватывающее противостояние от известного ватаката в жанре фентези","film2", false,this),
-        FilmItem (0,"Чужие","История про ужасных инопланетных чудовищ продолжается. Рипли опять в деле","film5", false,this),
-        FilmItem (0,"Робокоп","Бандиты недалекого будущего станут столь суровы, что для борьбы с ними создадут Киборга","film6", false,this),
-        FilmItem (0,"Выход Дракона","Брюс Ли всех подбъет, пусть даже врагов будет целый остров","film7", false,this),
-        FilmItem (0,"Хороший, плохой, злой","Выдающийся спагетти-вестерн. Все звезды жанра - Трус, Бывалый и Балбес на мексиканский лад","film8", false,this),
-        FilmItem (0,"Проект А","Почти Операция Ы, но в главной роли Джеки Чан и его друзья","film9", false,this),
-        FilmItem (0,"Гладиатор","Рассел Кроу в роли Настоящего Мужика времен Римской Империи","film10", false,this),
-    )
 
     private val recyclerView by lazy { findViewById<RecyclerView>(R.id.recyclerview) }
     private val toolbar by lazy { findViewById<Toolbar>(R.id.toolbar) }
@@ -52,9 +54,6 @@ class MainActivity : AppCompatActivity() {
             items[i].favor = false
             i++
         }
-
-//        items.forEachIndexed { index, filmItem -> filmItem.fID = index }
-//        items.forEach { filmItem -> filmItem.favor = false }
 
         if (savedInstanceState?.getInt(TOTAL_FAVORITES, totalFavorites) != null) {
             savedInstanceState.getInt(TOTAL_FAVORITES, totalFavorites).also { totalFavorites = it }
@@ -78,12 +77,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
- /*
-            R.id.action_exit -> {
-                this.onBackPressed()
-                true
-            }
- */
             R.id.action_favorite -> {
                 var favID = 0
                 var favFN = ""

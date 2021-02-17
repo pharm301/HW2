@@ -12,8 +12,8 @@ class FavoriteVH( itemView: View) : RecyclerView.ViewHolder(itemView) {
     val favoriteRmvBTN: Button = itemView.findViewById(R.id.btnRemove)
 
     fun bind (item : FavoriteItem) {
-        val resID = item.context.resources.getIdentifier(item.postername,"drawable",item.context.packageName)
+        val resID = itemView.context.resources.getIdentifier(item.postername,"drawable",itemView.context.packageName)
         filmnameTV.text = item.filmname
-        filmposterIV.background = item.context.resources.getDrawable(resID,null)
+        filmposterIV.background = itemView.context.resources.getDrawable(resID,null)
     }
 }
