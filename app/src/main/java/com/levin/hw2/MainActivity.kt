@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     )
 
     private val recyclerView by lazy { findViewById<RecyclerView>(R.id.recyclerview) }
+    private val toolbar by lazy { findViewById<Toolbar>(R.id.toolbar) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         setContentView(R.layout.activity_main)
-
+        setSupportActionBar(toolbar)
         initRecycler()
     }
 
@@ -76,10 +78,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
+ /*
             R.id.action_exit -> {
                 this.onBackPressed()
                 true
             }
+ */
             R.id.action_favorite -> {
                 var favID = 0
                 var favFN = ""
@@ -138,7 +142,6 @@ class MainActivity : AppCompatActivity() {
 
             override fun onItemClick(filmItem: FilmItem, position: Int) {
                 // change element -> notifyDelete
-
             }
         })
     }

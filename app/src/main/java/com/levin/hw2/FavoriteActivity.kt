@@ -3,10 +3,8 @@ package com.levin.hw2
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -21,6 +19,7 @@ class FavoriteActivity : AppCompatActivity() {
         FavoriteItem(0, "Звездные войны", "film1", this)
     )
     private val recyclerView by lazy { findViewById<RecyclerView>(R.id.recyclerview) }
+    private val toolbar by lazy { findViewById<Toolbar>(R.id.toolbar) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,41 +47,8 @@ class FavoriteActivity : AppCompatActivity() {
             i ++
         }
         setContentView(R.layout.activity_favorite)
+        setSupportActionBar(toolbar)
         initRecycler()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.favorite_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId){
-            R.id.favorite_save -> {
-                val intent = Intent()
-                val totalFavorites = items.size
-                var i = 0
-
-                intent.putExtra(TOTAL_FAVORITES, totalFavorites)
-                if (totalFavorites > 0) {
-                    i = 0
-                    while (i < totalFavorites) {
-                        intent.putExtra(prefID + i.toString(), items[i].fID)
-                        i++
-                    }
-                }
-                setResult(RESULT_OK, intent);
-                finish()
-                true
-            }
-            R.id.favorite_cancel -> {
-                val intent = Intent()
-                setResult(RESULT_CANCELED, intent);
-                finish()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     private fun initRecycler() {
@@ -99,5 +65,23 @@ class FavoriteActivity : AppCompatActivity() {
                     }
                 }
             })
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent()
+        val totalFavorites = items.size
+        var i = 0
+
+        intent.putExtra(TOTAL_FAVORITES, totalFavorites)
+        if (totalFavorites > 0) {
+            i = 0
+            while (i < totalFavorites) {
+                intent.putExtra(prefID + i.toString(), items[i].fID)
+                i++
+            }
+        }
+        setResult(RESULT_OK, intent);
+        finish()
+        super.onBackPressed()
     }
 }

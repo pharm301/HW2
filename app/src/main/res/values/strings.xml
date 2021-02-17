@@ -11,4 +11,6 @@
     <string name="ExitAlertMsg">Are you sure that you want to exit?</string>
     <string name="ExitAlertYes">Yes, I sure</string>
     <string name="ExitAlertNo">No, I stay</string>
+    <string name="MainMenu">All films list</string>
+    <string name="FavoriteMenu">Your\'s favorite</string>
 </resources>

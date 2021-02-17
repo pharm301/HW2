@@ -2,13 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/action_exit"
-        android:title="@string/favorite_cancel"
-        app:showAsAction="ifRoom|withText"
-        android:icon="@drawable/ic_baseline_arrow_back_24" />
-
-    <item
+      <item
         android:id="@+id/action_favorite"
         android:icon="@drawable/is_favor"
         android:orderInCategory="50"

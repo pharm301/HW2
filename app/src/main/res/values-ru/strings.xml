@@ -12,4 +12,6 @@
     <string name="ExitAlertMsg">Вы уверены что хотите выйти из программы?</string>
     <string name="ExitAlertYes">Уверен</string>
     <string name="ExitAlertNo">Остаюсь</string>
+    <string name="MainMenu">Все фильмы</string>
+    <string name="FavoriteMenu">Ваши избранные фильмы</string>
 </resources>
